@@ -175,3 +175,4 @@ python auto_commit_watcher.py > watcher.log 2>&1
 
 이제 파일을 수정하고 저장하기만 하면 자동으로 커밋됩니다! 🎉
 
+

@@ -75,3 +75,4 @@ schtasks /create /tn "GitAutoCommit" /tr "python D:\Project\grass\commit_helper.
 ### 푸시 실패
 → GitHub 인증 확인 및 원격 저장소 URL 확인
 
+

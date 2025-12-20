@@ -18,3 +18,4 @@ if __name__ == '__main__':
         print(f"\n❌ 오류 발생: {e}")
         sys.exit(1)
 
+
