@@ -89,7 +89,7 @@ class SyncHandler(FileSystemEventHandler):
         
         # 기존 타이머 취소
         if self.sync_timer:
-            return
+            self.sync_timer.cancel()
         
         # 새 타이머 설정
         import threading
@@ -100,6 +100,7 @@ class SyncHandler(FileSystemEventHandler):
             self.sync_timer = None
         
         self.sync_timer = threading.Timer(self.debounce_seconds, delayed_sync)
+        self.sync_timer.daemon = True
         self.sync_timer.start()
     
     def sync_changes(self):
