@@ -34,6 +34,7 @@ class SyncHandler(FileSystemEventHandler):
         self.debounce_seconds = debounce_seconds
         self.last_commit_time = 0
         self.pending_changes = set()
+        self.sync_timer = None
         self.ignored_patterns = {
             '.git', '__pycache__', '.pyc', '.pyo', '.pyd',
             '.log', '.tmp', '.swp', '.swo', '~'
@@ -62,30 +63,44 @@ class SyncHandler(FileSystemEventHandler):
     def on_modified(self, event: FileSystemEvent):
         """파일 수정 이벤트"""
         if not event.is_directory and not self.should_ignore(event.src_path):
+            print(f"📝 [{datetime.now().strftime('%H:%M:%S')}] 파일 변경 감지: {Path(event.src_path).name}")
             self.pending_changes.add(event.src_path)
             self.schedule_sync()
     
     def on_created(self, event: FileSystemEvent):
         """파일 생성 이벤트"""
         if not event.is_directory and not self.should_ignore(event.src_path):
+            print(f"➕ [{datetime.now().strftime('%H:%M:%S')}] 파일 생성 감지: {Path(event.src_path).name}")
             self.pending_changes.add(event.src_path)
             self.schedule_sync()
     
     def on_deleted(self, event: FileSystemEvent):
         """파일 삭제 이벤트"""
         if not event.is_directory and not self.should_ignore(event.src_path):
+            print(f"➖ [{datetime.now().strftime('%H:%M:%S')}] 파일 삭제 감지: {Path(event.src_path).name}")
             self.pending_changes.add(event.src_path)
             self.schedule_sync()
     
     def schedule_sync(self):
         """동기화 스케줄링 (디바운스)"""
-        current_time = time.time()
+        # 디바운스를 위해 타이머 사용
+        if not hasattr(self, 'sync_timer'):
+            self.sync_timer = None
         
-        if current_time - self.last_commit_time < self.debounce_seconds:
+        # 기존 타이머 취소
+        if self.sync_timer:
             return
         
-        if self.pending_changes:
-            self.sync_changes()
+        # 새 타이머 설정
+        import threading
+        def delayed_sync():
+            time.sleep(self.debounce_seconds)
+            if self.pending_changes:
+                self.sync_changes()
+            self.sync_timer = None
+        
+        self.sync_timer = threading.Timer(self.debounce_seconds, delayed_sync)
+        self.sync_timer.start()
     
     def sync_changes(self):
         """변경사항 동기화 (커밋 + 푸시)"""
@@ -148,9 +163,14 @@ class SyncHandler(FileSystemEventHandler):
             
             self.pending_changes.clear()
             self.last_commit_time = time.time()
+            if hasattr(self, 'sync_timer') and self.sync_timer:
+                self.sync_timer.cancel()
+                self.sync_timer = None
             
         except Exception as e:
             print(f"❌ [{datetime.now().strftime('%H:%M:%S')}] 동기화 오류: {e}")
+            import traceback
+            traceback.print_exc()
 
 
 class SyncWatcher:
