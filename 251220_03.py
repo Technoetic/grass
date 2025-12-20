@@ -1,8 +1,7 @@
-x = 10
-y = 3
+a = input("정수 a: ")
+b = input("정수 b: ")
 
-print("x =", x)
-print("y =", y)
-print("x + y =", x + y)
-print("x - y =", x - y)
-print("테스트: 실시간 동기화 확인")
+a = int(a)
+b = int(b)
+
+print("a + b =", a + b)
