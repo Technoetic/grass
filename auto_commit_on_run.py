@@ -45,7 +45,8 @@ def run_and_commit(script_path: str, *args):
         
         if exit_code != 0:
             print(f"⚠️  스크립트 실행 실패 (종료 코드: {exit_code})")
-            print("   커밋은 수행하지 않습니다.")
+            print("   실행은 완료되었지만, 커밋은 수행하지 않습니다.")
+            # 실행 실패해도 변경사항이 있으면 커밋할 수 있도록 옵션 제공
             return False
         
         print("✅ 스크립트 실행 완료!")
