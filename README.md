@@ -16,6 +16,12 @@ Cursor IDE에서 GitHub 잔디(contribution graph)를 관리하기 위한 도구
 - ✅ 간편한 커밋 명령어 제공
 - ✅ 커밋 로그 조회
 
+### 3. 실시간 자동 커밋 ⭐ NEW!
+- ✅ 파일 변경 시 자동 커밋
+- ✅ 스마트 디바운스 (여러 변경사항 묶기)
+- ✅ 자동 커밋 메시지 생성
+- ✅ 불필요한 파일 자동 제외
+
 ## 설치
 
 1. Python 3.7 이상이 필요합니다.
@@ -132,6 +138,29 @@ if result['success']:
 1. **터미널 열기**: `Ctrl + `` (백틱) 또는 `View > Terminal`
 2. **명령어 실행**: 위의 커밋 명령어 사용
 3. **단축키 설정** (선택사항): Cursor 설정에서 키보드 단축키 추가
+
+### 실시간 자동 커밋 (파일 변경 시 자동 커밋) ⭐
+
+```bash
+# 기본 실행 (파일 저장 시 자동 커밋)
+python auto_commit_watcher.py
+
+# 자동 푸시 포함
+python auto_commit_watcher.py --push
+
+# 디바운스 시간 조정 (30초)
+python auto_commit_watcher.py --debounce 30
+
+# 간단한 실행
+python start_watcher.py
+```
+
+**작동 방식:**
+1. 감시 시작
+2. 파일을 수정하고 저장
+3. 자동으로 커밋됨! (5초 디바운스)
+
+자세한 내용은 `AUTO_COMMIT_GUIDE.md` 참고
 
 ### 테스트 실행
 

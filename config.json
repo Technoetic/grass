@@ -16,6 +16,13 @@
       ".env",
       ".git"
     ]
+  },
+  "watcher": {
+    "auto_message": true,
+    "auto_push": false,
+    "debounce_seconds": 5,
+    "ignore_patterns": [".pyc", ".pyo", ".pyd", ".log", ".tmp"],
+    "ignore_dirs": [".git", "__pycache__", "venv", "env", ".venv", "node_modules"]
   }
 }
 
