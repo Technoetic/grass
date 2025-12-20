@@ -1,0 +1,21 @@
+{
+  "git": {
+    "auto_push": false,
+    "default_commit_message": "Update: {timestamp}",
+    "remote": "origin"
+  },
+  "schedule": {
+    "enabled": false,
+    "interval_hours": 24
+  },
+  "files": {
+    "track_changes": true,
+    "ignore_patterns": [
+      "*.pyc",
+      "__pycache__",
+      ".env",
+      ".git"
+    ]
+  }
+}
+
