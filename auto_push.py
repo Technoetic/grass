@@ -4,6 +4,8 @@
 """
 import subprocess
 import sys
+import atexit
+import inspect
 from pathlib import Path
 from datetime import datetime
 
@@ -131,4 +133,30 @@ def _print_push_confirmation():
         print("=" * 60)
         print(f"✅ [{datetime.now().strftime('%H:%M:%S')}] Git Push 완료!")
         print("=" * 60)
+
+
+def _get_calling_script_name() -> str:
+    """호출한 스크립트의 이름을 가져옵니다."""
+    try:
+        # 호출 스택을 확인하여 __main__ 모듈의 파일명을 찾음
+        frame = inspect.currentframe()
+        while frame:
+            if frame.f_globals.get('__name__') == '__main__':
+                script_path = frame.f_globals.get('__file__', '')
+                if script_path:
+                    return Path(script_path).name
+            frame = frame.f_back
+        return None
+    except Exception:
+        return None
+
+
+def _auto_push_on_exit():
+    """프로그램 종료 시 자동으로 push합니다."""
+    script_name = _get_calling_script_name()
+    auto_commit_and_push(script_name=script_name)
+
+
+# 모듈이 import될 때 자동으로 프로그램 종료 시 push하도록 등록
+atexit.register(_auto_push_on_exit)
 
