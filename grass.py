@@ -1,6 +1,6 @@
 import auto_push
 
-a = [1, 107, 3, 4, 5]
+a = ["a","c","b"]
 
 a.append(2)
 a.sort()
