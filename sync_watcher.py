@@ -156,7 +156,45 @@ class SyncHandler(FileSystemEventHandler):
                     )
                     
                     if push_result.returncode == 0:
-                        print(f"🚀 [{datetime.now().strftime('%H:%M:%S')}] 푸시 완료!")
+                        # 브랜치 정보 가져오기
+                        branch_result = subprocess.run(
+                            ['git', 'branch', '--show-current'],
+                            capture_output=True,
+                            text=True,
+                            encoding='utf-8'
+                        )
+                        branch_name = branch_result.stdout.strip() if branch_result.returncode == 0 else '알 수 없음'
+                        
+                        # 원격 저장소 정보 가져오기
+                        remote_result = subprocess.run(
+                            ['git', 'remote', 'get-url', 'origin'],
+                            capture_output=True,
+                            text=True,
+                            encoding='utf-8'
+                        )
+                        remote_url = remote_result.stdout.strip() if remote_result.returncode == 0 else '알 수 없음'
+                        
+                        # 최근 커밋 해시 가져오기
+                        commit_hash_result = subprocess.run(
+                            ['git', 'log', '-1', '--format=%h'],
+                            capture_output=True,
+                            text=True,
+                            encoding='utf-8'
+                        )
+                        commit_hash = commit_hash_result.stdout.strip() if commit_hash_result.returncode == 0 else ''
+                        
+                        # 상세한 푸시 확인 메시지 출력
+                        print()
+                        print("=" * 60)
+                        print(f"✅ [{datetime.now().strftime('%H:%M:%S')}] Git Push 완료!")
+                        print("=" * 60)
+                        print(f"📦 브랜치: {branch_name}")
+                        print(f"🔗 원격 저장소: {remote_url}")
+                        if commit_hash:
+                            print(f"📝 커밋 해시: {commit_hash}")
+                        print(f"⏰ 푸시 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                        print("=" * 60)
+                        print()
                     else:
                         print(f"⚠️  [{datetime.now().strftime('%H:%M:%S')}] 푸시 실패: {push_result.stderr}")
             else:
