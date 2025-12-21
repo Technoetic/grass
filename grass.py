@@ -2,4 +2,4 @@ import auto_push
 
 a = ["11","12","13"]
 
-print(a.index(3))
+print(a.index(13))
