@@ -1,5 +1,5 @@
 import auto_push
 
-a = ["a","c","b"]
+a = ["11","12","13"]
 
-print(a.index("b"))
+print(a.index(3))
