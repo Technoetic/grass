@@ -1,10 +1,6 @@
 import auto_push
 
-a = [1, 2, 3, 4, 5]
+a = [1, 2, 3, ["a", "b", "c"], 4, 5]
 
-b = (a[:1])
-c = (a[2:])
+print(a[2:5])
 
-print(b)
-print(a[:2])
-print(c)
