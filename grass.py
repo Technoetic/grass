@@ -2,4 +2,6 @@ import auto_push
 
 a = [1, 2, 3, 4, 5]
 
-print(a[:1])
+b = (a[:1])
+
+print(b)
