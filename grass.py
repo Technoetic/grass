@@ -2,6 +2,6 @@ import auto_push
 
 a = ["a","c","b"]
 
-a.sort()
+a.reverse()
 
 print(a)
