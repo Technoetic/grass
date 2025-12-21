@@ -2,6 +2,10 @@
 자동 Git 커밋 및 푸시 모듈
 스크립트 실행 후 자동으로 커밋하고 푸시하는 기능을 제공합니다.
 """
+import os
+# __pycache__ 디렉토리 생성 방지
+os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+
 import subprocess
 import sys
 import atexit
