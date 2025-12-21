@@ -3,11 +3,12 @@
 스크립트 실행 후 자동으로 커밋하고 푸시하는 기능을 제공합니다.
 """
 import os
+import sys
 # __pycache__ 디렉토리 생성 방지
 os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+sys.dont_write_bytecode = True
 
 import subprocess
-import sys
 import atexit
 import inspect
 from pathlib import Path
