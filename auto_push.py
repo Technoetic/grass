@@ -2,16 +2,36 @@
 자동 Git 커밋 및 푸시 모듈
 스크립트 실행 후 자동으로 커밋하고 푸시하는 기능을 제공합니다.
 """
-import os
+# __pycache__ 디렉토리 생성 방지 - 가장 먼저 실행되어야 함
 import sys
-# __pycache__ 디렉토리 생성 방지
-os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+import os
+import shutil
+import atexit
+from pathlib import Path
+
+# Python 인터프리터 레벨에서 바이트코드 생성 비활성화
 sys.dont_write_bytecode = True
+os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+
+def _cleanup_pycache():
+    """__pycache__ 디렉토리를 정리합니다."""
+    try:
+        current_dir = Path(__file__).parent
+        pycache_dir = current_dir / '__pycache__'
+        if pycache_dir.exists():
+            shutil.rmtree(pycache_dir)
+    except Exception:
+        pass
+
+# 모듈 로드 시 즉시 정리
+_cleanup_pycache()
+
+# 프로그램 종료 시에도 정리 (atexit에 등록)
+atexit.register(_cleanup_pycache)
 
 import subprocess
 import atexit
 import inspect
-from pathlib import Path
 from datetime import datetime
 
 
