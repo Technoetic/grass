@@ -1,7 +1,6 @@
 import auto_push
 
-a = [1, 2, 3, ["a", "b", "c"], 4, 5]
+a = [1, 2, 3]
+b = [4, 5, 6]
 
-print(a[2:5])
-
-print(a[3][:2])
+print(a + b)
