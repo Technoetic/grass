@@ -1,5 +1,5 @@
 import auto_push
 
-a = [1, 2, 3, 4, 5, ["a", "b", "c"]]
+a = [1, 2, ["a", "b", ["Life", "is"]]]
 
-print(a[-1][1])
+print(a[2][2][0])
