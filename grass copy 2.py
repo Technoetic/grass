@@ -1,3 +1,3 @@
 import auto_push
 
-print("Hello, World!")
+print(1+2)
