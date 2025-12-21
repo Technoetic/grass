@@ -1,5 +1,5 @@
 import auto_push
 
-a = [1, 2, 3, 4, 5]
+a = "12345"
 
-print(a[0:1])
+print(a[0:2])
