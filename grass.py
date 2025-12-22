@@ -3,6 +3,6 @@ import auto_push
 a = [1, 2, 3]
 b = [4, 5, 6]
 
-a.pop()
+a.pop(0)
 
 print(a)
