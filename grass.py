@@ -2,6 +2,6 @@ import auto_push
 
 a = {"name": "pey", "phone": "010-9999-1234", "birth": "1118"}
 
-it = a.items()
+a.clear()
 
-print(it)
+print(a)
