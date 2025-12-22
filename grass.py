@@ -1,6 +1,7 @@
 import auto_push
 
-dic = {"name": "John", "age": 20}
+a = {"name": "Kim", "phone": "010-1234-5678", "birth": "0101"}
 
+key_list = list(a.keys())
 
-print(dic["age"])
+print(key_list)
