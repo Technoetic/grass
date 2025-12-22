@@ -1,6 +1,7 @@
 import auto_push
 
-a = (1, 2, 3)
-b = (1, 2, 3)
+dic = {"name": "John", "age": 20}
 
-print(len(a))
+dic[0] = "Jeon" 
+
+print(dic)
