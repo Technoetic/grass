@@ -1,5 +1,6 @@
 import auto_push
 
-a = [11, 12, 13]
+a = [1, 2, 3]
+b = [4, 5, 6]
 
-print(a.insert(0, 4))
+print(a+b)
