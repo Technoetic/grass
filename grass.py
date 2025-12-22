@@ -1,7 +1,7 @@
 import auto_push
 
-a = {"name": "Kim", "phone": "010-1234-5678", "birth": "0101"}
+a = {"name": "pey", "phone": "010-9999-1234", "birth": "1118"}
 
-key_list = list(a.keys())
+it = a.items()
 
-print(key_list)
+print(it)
