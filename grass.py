@@ -1,7 +1,7 @@
 import auto_push
 
 count = 0
-while count < 3:
+while count < 1:
     print(f"count: {count}")
     count = count + 1
 else:
