@@ -1,7 +1,11 @@
 import auto_push
 
-list = ["apple", "desk", "chair"]
-a = [(1, 2), (3, 4), (5, 6)]
+marks = [90, 25, 67, 45, 80]
 
-for (num1, num2) in a:
-    print(num1 + num2)
+number = 0
+for mark in marks:
+    number = number + 1
+    if mark >= 60:
+        print(f"{number}번 학생은 합격입니다.")
+    else:
+        print(f"{number}번 학생은 불합격입니다.")
