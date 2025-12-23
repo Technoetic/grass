@@ -1,6 +1,7 @@
 import auto_push
 
 list = ["apple", "desk", "chair"]
+a = [(1, 2), (3, 4), (5, 6)]
 
-for i in list:
-    print(i)
+for (first, last) in a:
+    print(first + last)
