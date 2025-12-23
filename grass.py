@@ -1,11 +1,8 @@
 import auto_push
 
-a = 0
-coffee = 10
-money = 300
-
-while a < 10:
-    a = a + 1
-    if a % 2 == 0: continue
-    print(a)
-
+count = 0
+while count < 3:
+    print(f"count: {count}")
+    count = count + 1
+else:
+    print("while문이 종료되었습니다.")
