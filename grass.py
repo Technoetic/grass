@@ -1,14 +1,9 @@
 import auto_push
 
-s1 = set([1, 2, 3, 4, 5])
-s2 = set([3, 4, 5, 6, 7])
+treeHit = 0
 
-s1.add(199)
-
-s1.update(s2)
-
-s1.remove(199)
-
-s1.clear()
-
-print(s1)
+while treeHit < 10:
+    treeHit = treeHit + 1
+    print("나무를 {treeHit}번 찍었습니다.")
+    if treeHit == 10:
+        print("나무 넘어갑니다.")
