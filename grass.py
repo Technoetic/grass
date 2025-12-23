@@ -2,7 +2,7 @@ import auto_push
 
 count = 0
 while count < 5:
-    if count == 3:
+    if count == 2:
         break
     print(f"count: {count}")
     count = count + 1
