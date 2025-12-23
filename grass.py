@@ -1,10 +1,9 @@
 import auto_push
 
-count = 0
-while count < 5:
-    if count == 2:
-        break
-    print(f"count: {count}")
-    count = count + 1
-else:
-    print("while문이 종료되었습니다.")
+i = 1
+while i <= 3:
+    j = 1
+    while j <= 3:
+        print(f"i={i}, j={j}")
+        j += 1
+    i += 1
