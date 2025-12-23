@@ -1,8 +1,5 @@
 import auto_push
 
-a = {"name": "pey", "phone": "010-9999-1234", "birth": "1118"}
+a = set([1, 2, 3])
 
-
-
-
-print(a.pop("sex", "아다"))
+print(a)
