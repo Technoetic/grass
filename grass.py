@@ -7,4 +7,6 @@ s1.add(199)
 
 s1.update(s2)
 
+s1.remove(199)
+
 print(s1)
