@@ -1,6 +1,6 @@
 import auto_push
 
-fruits = ['apple', 'banana', 'cherry']
-
-for i, fruit in enumerate(fruits, 1):
-    print(f"{i}: {fruit}")
+name = ["전문준", "김민수", "이영희"]
+score = [90, 85, 95]
+for name, score in zip(name, score):
+    print(f"{name}: {score}")
