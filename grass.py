@@ -1,6 +1,6 @@
 import auto_push
 
-for i in range(10):
+for i in range(5):
     if i ==3:
         break
     print(i)
