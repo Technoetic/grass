@@ -1,9 +1,6 @@
 import auto_push
 
 a = [1, 2, 3, 4]
-result = []
-for num in a:
-    result.append(num*2)
+result = [num * 3 for num in a if num % 2 == 0]
 
 print(result)
-[3, 6, 9, 12]
