@@ -1,8 +1,10 @@
 import auto_push
 
-def add(a, b):
-    result = a + b
-    return result
+def say():
+    return "hi"
 
-a = add(3, 4)
+
+a = say()
+
 print(a)
+
