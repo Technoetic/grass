@@ -1,6 +1,4 @@
 import auto_push
 
-def say():
-    print("hi")
-
-say()
+def sub(a, b):
+    return a - b
