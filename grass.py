@@ -1,10 +1,8 @@
 import auto_push
 
-def print_kwargs(**kwargs):
-    print(kwargs)
+def create_profile(**info):
+    print("=== 인 적 사 항 ===")
+    for key, value in info.items():
+        print(f"{key}: {value}")
 
-print_kwargs(a=1)
-
-print_kwargs(name = "foo", age = 3)
-
-print_kwargs(name = "전문준",  age = 88, city = "서울",  job = "개발자")
+create_profile(이름 = "김철수", 나이 = 30, 직업 = "개발자", 취미 = "독서")
