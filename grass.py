@@ -5,3 +5,5 @@ def add_many(*args):
     for i in args:
         result = result + i
     return
+
+result = add_many(1, 2, 3)
