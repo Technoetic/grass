@@ -6,4 +6,4 @@ def add_n_mul(a, b):
 
 result = add_n_mul(3, 4)
 
-print(3, 4)
+print(result)
