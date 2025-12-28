@@ -7,3 +7,5 @@ def add_many(*args):
     return
 
 result = add_many(1, 2, 3)
+
+print(result)
