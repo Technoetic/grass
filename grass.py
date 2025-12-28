@@ -1,8 +1,9 @@
 import auto_push
 
-def mix_func(name, *args, **kwargs):
-    print(f"이름: {name}")
-    print(f"숫자 인수들: {args}")
-    print(f"인적 인수들: {kwargs} ")
+def add_n_mul(a, b):
+    return a+b, a*b
 
-mix_func("전문준", 100, 101, age = 25, city = "서울")
+
+result = add_n_mul(3, 4)
+
+print(3, 4)
