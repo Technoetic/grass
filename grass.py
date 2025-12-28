@@ -1,9 +1,7 @@
 import auto_push
 
-def add_n_mul(a, b):
-    return a+b, a*b
+def say_nick(nick):
+    return
+    print("나는 %s입니다." % nick)
 
-
-result = add_n_mul(3, 4)
-
-print(result)
+say_nick("천재")
