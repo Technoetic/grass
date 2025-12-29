@@ -1,7 +1,12 @@
 import auto_push
 
-def say_nick(nick):
-    print("나는 %s입니다." % nick)
+def say_myself(name, age, man = True):
+    print("나의 이름은 %s입니다." % name)
+    print("나이는 %d살입니다." % age)
+    if man:
+        print("남자입니다.")
 
-say_nick("천재")
-say_nick("부자")
+    else:
+        print("여자입니다.")
+
+    say_myself("전문준, 88, True")
