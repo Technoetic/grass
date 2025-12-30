@@ -16,8 +16,8 @@ all_max = 0
 all_min = 0
 
 for i in range(len(data)):
-    row_max = 0
-    row_min = 0
+    row_max = data[i][0]
+    row_min = data[i][0]
 
     for j in range(len(data[i])):
         v = data[i][j]
