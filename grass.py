@@ -12,8 +12,8 @@ data = [
     [20, 28, 40, 70, 70, 20, 20, 70, 70, 80]
 ]
 
-all_max = 0
-all_min = 0
+all_max = data[0][0]
+all_min = data[0][0]
 
 for i in range(len(data)):
     row_max = data[i][0]

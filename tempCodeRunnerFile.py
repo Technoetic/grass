@@ -1,2 +1,2 @@
 
-s1.clear()
+    row_min = data[i][0]
