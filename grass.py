@@ -26,11 +26,13 @@ for i in range(len(data)):
             row_max = v
         if v < row_min:
             row_min = v
-
+        
         if v > all_max:
             all_max = v
         if v < all_min:
             all_min = v
+
     print(f'data[{i}] max:{row_max} min:{row_min}')
 
 print(f'max:{all_max} min:{all_min}')
+    
