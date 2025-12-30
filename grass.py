@@ -12,5 +12,8 @@ for i in scores:
         total += i
         count += 1
 
+avg = total/count
+
+print(avg)
 print(total)
 print(count)
